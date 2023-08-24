@@ -24,21 +24,21 @@ jobs:
 
 
       # Continous Deliver
-       - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            REPO_URL=git@github.com:acdk2662/Vulnerable-Flask-App.git
-            LIVE_DIR=/home/acdk/Vulnerable-Flask-App
-            echo "Pulling repository live..."
-            mkdir -p $LIVE_DIR
-            cd $LIVE_DIR
-            git init
-            git remote add origin $REPO_URL
-            git pull origin main
-            bash /home/acdk/config/killApp.sh && python3 /home/acdk/Vulnerable-Flask-App/vulnerable-flask-app.py &
-            echo "On Production"
+      #  - name: executing remote ssh commands using password
+      #   uses: appleboy/ssh-action@v1.0.0
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     port: ${{ secrets.PORT }}
+      #     script: |
+      #       REPO_URL=git@github.com:acdk2662/Vulnerable-Flask-App.git
+      #       LIVE_DIR=/home/acdk/Vulnerable-Flask-App
+      #       echo "Pulling repository live..."
+      #       mkdir -p $LIVE_DIR
+      #       cd $LIVE_DIR
+      #       git init
+      #       git remote add origin $REPO_URL
+      #       git pull origin main
+      #       bash /home/acdk/config/killApp.sh && python3 /home/acdk/Vulnerable-Flask-App/vulnerable-flask-app.py &
+      #       echo "On Production"

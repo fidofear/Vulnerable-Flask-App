@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - 'main'      
-
+jobs:
   Burp-Dastardly:
     name: Burpsuite Scan
     needs: Build-app
