@@ -1,4 +1,8 @@
 name: Dynamic Analysis Security Testing
+permissions:
+  contents: read
+  checks: write
+  id-token: write
 on: 
   push:
     branches:
@@ -18,10 +22,6 @@ jobs:
       - name: Publish Test Report with JUnit
         if: always()
         uses: mikepenz/action-junit-report@v3
-        permissions:
-          contents: read
-          checks: write
-          id-token: write
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           report_paths: '**/dastardly-report.xml'
