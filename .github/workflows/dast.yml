@@ -6,7 +6,6 @@ on:
 jobs:
   Burp-Dastardly:
     name: Burpsuite Scan
-    needs: Build-app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

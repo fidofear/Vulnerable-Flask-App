@@ -2,7 +2,7 @@ name: CI
 on: 
   push:
     branches:
-      - 'main'
+      - 'none'
 jobs:
   Build-app:
     name: Run the test
