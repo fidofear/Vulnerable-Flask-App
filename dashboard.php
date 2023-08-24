@@ -14,6 +14,7 @@ $loggedInUser = $_SESSION['username'];
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
 </head>
 <body>
@@ -24,5 +25,49 @@ $loggedInUser = $_SESSION['username'];
     <form action="logout.php" method="POST">
         <input type="submit" value="Logout">
     </form>
+
+    <canvas id="myChart"></canvas>
+    <script>
+   // Get the canvas element
+   var ctx = document.getElementById('myChart').getContext('2d');
+
+   // Sample data for the chart
+   var data = {
+      labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
+      datasets: [{
+         label: 'Sample Data',
+         data: [12, 19, 3, 5, 2],
+         backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+         ],
+         borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+         ],
+         borderWidth: 1
+      }]
+   };
+
+   // Create the chart
+   var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: {
+         scales: {
+            y: {
+               beginAtZero: true
+            }
+         }
+      }
+   });
+</script>
+
 </body>
 </html>
