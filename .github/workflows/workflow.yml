@@ -1,0 +1,21 @@
+name: Static Analysis Security Testing
+on: 
+  push:
+    branches:
+      - 'main'
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: new-dev
+      - uses: AppThreat/sast-scan-action@v1.0.0
+        with:
+          output: reports
+          type: "python"
+      - uses: actions/upload-artifact@v1.0.0
+        if: always()
+        with:
+          name: reports
+          path: reports
