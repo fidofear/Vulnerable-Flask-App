@@ -40,7 +40,7 @@ jobs:
             path: reports
 
   Burp-Dastardly:
-      name: Burpsuite Scan
+      name: DAST Burpsuite Scan
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
