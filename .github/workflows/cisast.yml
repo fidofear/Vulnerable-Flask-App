@@ -2,7 +2,7 @@ name: CI Sast
 on: 
   push:
     branches:
-      - 'none'
+      - 'main'
 jobs:
   Build-app:
     name: CI Run the test

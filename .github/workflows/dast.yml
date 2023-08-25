@@ -6,7 +6,7 @@ permissions:
 on: 
   push:
     branches:
-      - 'none'      
+      - 'main'      
 jobs:
   Burp-Dastardly:
     name: Burpsuite Scan
