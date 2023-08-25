@@ -1,8 +1,8 @@
-name: CI Sast Dast
+name: CI Sast
 on: 
   push:
     branches:
-      - 'main'
+      - 'none'
 jobs:
   Build-app:
     name: CI Run the test
@@ -38,4 +38,3 @@ jobs:
         with:
           name: reports
           path: reports
-
