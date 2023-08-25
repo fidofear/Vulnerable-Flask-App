@@ -2,8 +2,25 @@ name: CI Sast
 on: 
   push:
     branches:
-      - 'main'
+      - 'none'
 jobs:
+  security:
+    name: SAST Run the test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: main
+      - uses: AppThreat/sast-scan-action@v1.0.0
+        with:
+          output: reports
+          type: "python"
+      - uses: actions/upload-artifact@v1.0.0
+        if: always()
+        with:
+          name: reports
+          path: reports
+
   Build-app:
     name: CI Run the test
     runs-on: ubuntu-latest
@@ -22,19 +39,3 @@ jobs:
       - name: Test curl
         run: curl http://127.0.0.1:8081/
 
-  security:
-    name: SAST Run the test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          path: main
-      - uses: AppThreat/sast-scan-action@v1.0.0
-        with:
-          output: reports
-          type: "python"
-      - uses: actions/upload-artifact@v1.0.0
-        if: always()
-        with:
-          name: reports
-          path: reports
